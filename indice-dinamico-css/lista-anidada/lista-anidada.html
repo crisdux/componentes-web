@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        ol{
+            counter-reset: list;
+        }
+        li{
+            list-style: none;
+            counter-increment: list;
+        }
+        li::before{
+            content: counters(list, '.') '. ';
+        }
+    </style>
+
+    <ol>
+        <li>lorem</li>
+        <li>lorem
+            <ol>
+                <li>buenas</li>
+                <li>buenas</li>
+            </ol>
+        </li>
+        <li>llrem</li>
+        <li>lorem
+            <ol>
+                <li>hola</li>
+                <li>hola
+                    <ol>
+                        <li>jaj</li>
+                        <li>jaj</li>
+                        <li>jaj</li>
+                    </ol>
+                </li>
+                <li>hola</li>
+            </ol>
+        </li>
+        <li>lorem</li>
+        <li>lorem</li>
+    </ol>
+</body>
+</html>

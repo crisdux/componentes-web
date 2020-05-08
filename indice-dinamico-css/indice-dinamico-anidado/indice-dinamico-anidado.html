@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        .temary{
+            counter-reset: classes; /*declaro variable*/
+            
+        }
+
+        .class{
+            counter-increment: classes; /*incrmento variable*/
+            counter-reset: topics; /*declaro variable*/
+        }
+        .title-topic::before{
+            content: counter(classes) '. '; /*imprimo variable*/
+        }
+
+        .class-topic{
+            counter-increment: topics; /*incrmento variable*/
+        }
+
+        .class-topic::before{
+            content: counter(classes) '.' counter(topics) '. '; /*imprimo variables*/
+            font-weight: 600;
+        }
+    </style>
+
+    <div class="temary">
+        <h1>Mi indice</h1>
+        <div class="class">
+            <h2 class="title-topic">Box model</h2>
+            <p class="class-topic">Margin</p>
+            <p class="class-topic">Padding</p>
+            <p class="class-topic">Border</p>
+            <p class="class-topic">Width</p>
+            <p class="class-topic">Height</p>
+        </div>
+
+        <div class="class">
+            <h2 class="title-topic">Unidades de medida</h2>
+            <p class="class-topic">Px</p>
+            <p class="class-topic">Em</p>
+            <p class="class-topic">Rem</p>
+
+        </div>
+
+        <div class="class">
+            <h2 class="title-topic">Frameworks</h2>
+            <p class="class-topic">Bootstrap</p>
+            <p class="class-topic">Materialize</p>
+            <p class="class-topic">Bulma</p>
+            <p class="class-topic">Fundation</p>
+            <p class="class-topic">Vuetify</p>
+        </div>
+    </div>
+</body>
+
+</html>

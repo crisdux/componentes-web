@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+.capitulos{
+  counter-reset: contador; /*se "declara" el nombre de una "variable" con counter-reset*/
+  margin: 0 auto;
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+}
+
+.capitulo{
+  counter-increment: contador; /*se incrementa la variable de 1 en 1 con counter-increment*/
+}
+
+/*psudoelemento antes de los h3*/
+.capitulo::before{
+  content: counter(contador) '.'; /*funcion counter() imprime el contador en pantalla*/
+  margin-right: .25em;
+}
+</style>
+
+<body>
+    <h1>Indice simple</h1>
+    <div class="capitulos">
+        <h3 class="capitulo">Java</h3>
+        <h3 class="capitulo">PHP</h3>
+        <h3 class="capitulo">C++</h3>
+        <h3 class="capitulo">C</h3>
+        <h3 class="capitulo">JavaScript</h3>
+    </div>
+</body>
+
+</html>
