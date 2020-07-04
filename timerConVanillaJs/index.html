@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="timer">
+
+    </div>
+
+    <script>
+        //retorna un objeto con los dias, horas, minutos y sugundos restantes
+        const getTiempoRestante = stringFecha =>{
+        let now = new Date();
+        //cuanto tiempo durara el temporizador en segundos
+        let tiempoTotalRestanteEnSegundos= (new Date(stringFecha) - now +1000) /1000;
+        let tiempoRestanteEnSegundos = ('0'+ Math.floor(tiempoTotalRestanteEnSegundos % 60)).slice(-2);
+        let tiempoRestanteEnMinutos = ('0'+ Math.floor(tiempoTotalRestanteEnSegundos /60 % 60)).slice(-2);
+        let tiempoRestanteEnHoras = ('0'+ Math.floor(tiempoTotalRestanteEnSegundos /3600 % 24)).slice(-2);
+        let tiempoRestanteEnDias = Math.floor(tiempoTotalRestanteEnSegundos /(3600 * 24));
+        
+        return {
+            tiempoTotalRestanteEnSegundos,
+            tiempoRestanteEnSegundos,
+            tiempoRestanteEnMinutos,
+            tiempoRestanteEnHoras,
+            tiempoRestanteEnDias
+        }
+        
+        };
+
+        //actualiza cada segundo el tiempo faltante para la finalizacion del timer
+        const countdown = (stringFecha, elem, msg) => {
+        const el = document.getElementById(elem);
+        
+        const timerUpdate = setInterval( ()=>{
+            let t = getTiempoRestante(stringFecha);
+            el.innerHTML = `${t.tiempoRestanteEnDias}d:${t.tiempoRestanteEnHoras}h:${t.tiempoRestanteEnMinutos}m:${t.tiempoRestanteEnSegundos}s`;
+            
+                if( t.tiempoTotalRestanteEnSegundos <=1 ){
+                    
+                clearInterval(timerUpdate);
+                el.innerHTML = msg;
+                }
+            
+            },1000)
+        };
+
+        countdown('Sat Jul 05 2020 12:56:23 GMT-0400', 'timer','fin del conteo');
+
+    </script>
+</body>
+</html>
