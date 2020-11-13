@@ -31,3 +31,5 @@
 * ## [JSON Placeholder](https://jsonplaceholder.typicode.com/)
     API fake para pruebas de código
 
+* ## [Spinkit](https://tobiasahlin.com/spinkit/)
+    Spinner de carga gratuitos
